@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: 'HSE SkillUp',
-  url: 'https://hseskillup.id',
+  url: 'https://hseskillup.com',
   description:
     'Pelatihan dan sertifikasi K3 bersertifikat resmi untuk profesional, perusahaan, dan tim operasional di Indonesia.',
   contact: {
-    phone: '+6281234567890',
-    email: 'info@hseskillup.id',
-    address: 'Jakarta, Indonesia',
+    phone: '+6285328883511',
+    email: 'info@hseskillup.com',
+    address: 'Jl Patangpuluhan No26A Wirobrajan Yogyakarta',
     hours: 'Senin-Jumat, 08.00-17.00 WIB',
     whatsappMessage: 'Halo, saya tertarik dengan program pelatihan K3 di HSE SkillUp',
   },

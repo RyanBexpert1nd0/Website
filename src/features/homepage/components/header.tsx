@@ -7,9 +7,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur">
       <div className="container flex h-16 items-center justify-between gap-4">
         <a href="/" className="flex items-center gap-3 font-heading text-lg font-bold text-slate-950">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600 text-sm text-white">
-            HSE
-          </span>
+          <img src="/logo.svg" alt="HSE SkillUp" className="h-9 w-9 rounded-lg bg-white p-1 shadow-sm" />
           <span>{siteConfig.name}</span>
         </a>
         <nav aria-label="Navigasi utama" className="hidden items-center gap-1 lg:flex">
