@@ -151,3 +151,5 @@ export const trainingContent = {
     },
   ],
 } as const
+
+export type TrainingContent = typeof trainingContent

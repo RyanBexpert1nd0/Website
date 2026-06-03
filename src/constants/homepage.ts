@@ -110,3 +110,5 @@ export const homepageContent = {
     label: 'Request In-House Training',
   },
 } as const
+
+export type HomepageContent = typeof homepageContent

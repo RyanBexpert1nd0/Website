@@ -258,6 +258,280 @@ Website company profile modern dengan fitur-fitur:
 Beranda (Homepage)
 │
 ├── Program Pelatihan
+│   ├── Katalog Program
+│   ├── [slug] Detail Program
+│   └── In-House Training
+│
+├── Jadwal Training
+│   ├── Kalender Jadwal
+│   └── Detail Jadwal
+│
+├── Blog
+│   ├── Halaman Artikel
+│   ├── Kategori & Tag
+│   └── Halaman Detail Artikel
+│
+├── Tentang Kami
+│   ├── Profil Perusahaan
+│   ├── Tim & Instruktur
+│   ├── Akreditasi & Sertifikasi
+│   └── Klien & Partner
+│
+├── Kontak
+│   ├── Form Kontak
+│   └── Lokasi & Informasi
+│
+├── Pendaftaran
+│   ├── Form Pendaftaran Training
+│   ├── Konfirmasi Pendaftaran
+│   └── Halaman Terima Kasih
+│
+├── FAQ
+├── Privacy Policy
+└── Syarat & Ketentuan
+```
+
+### 7.1 Navigasi Utama
+- Beranda
+- Program Pelatihan
+- Jadwal Training
+- Blog
+- Tentang Kami
+- Kontak
+
+### 7.2 Navigasi Footer
+- Program Populer
+- Jadwal Training
+- Form Pendaftaran
+- Kontak & WA
+- Privacy Policy
+- Syarat & Ketentuan
+
+---
+
+## 8. Wireframe & Deskripsi Halaman
+
+### 8.1 Homepage
+- Hero section dengan headline yang jelas, subheadline manfaat, CTA utama "Daftar Sekarang" dan CTA sekunder "Konsultasi via WhatsApp"
+- Trust badge akreditasi dan logo partner
+- Highlight program unggulan dan kategori pelatihan
+- Ringkasan jadwal training terdekat
+- Statistik kinerja perusahaan
+- Testimoni alumni singkat
+- Preview artikel blog terbaru
+- Floating WA button yang selalu muncul di layar mobile dan desktop
+
+### 8.2 Halaman Katalog Program
+- Filter kategori, lembaga sertifikasi, dan lokasi
+- Daftar kartu program dengan ringkasan, durasi, harga, dan CTA
+- Link ke halaman detail setiap program
+
+### 8.3 Halaman Detail Program
+- Header nama program dan CTA pendaftaran
+- Ringkasan tujuan, target peserta, dan keunggulan
+- Informasi durasi, biaya, jadwal, dan sertifikasi
+- Silabus atau modul pelatihan
+- Testimoni program terkait
+- Form inquiry atau tombol WhatsApp dengan data program
+
+### 8.4 Halaman Jadwal Training
+- Tampilan daftar atau kalender training
+- Filter bulan, kategori, dan lokasi
+- Status kuota tersedia/penuh
+- Tombol daftar langsung dari setiap entri jadwal
+
+### 8.5 Halaman Pendaftaran
+- Form pendaftaran simple dengan validasi
+- Ringkasan data program/jadwal yang dipilih
+- Konfirmasi pengiriman dan call-to-action follow-up
+
+### 8.6 Halaman Blog & Artikel
+- Landing page artikel dengan kategori dan search
+- Halaman artikel lengkap dengan meta, gambar utama, dan CTA
+- Link ke artikel terkait dan subscribe newsletter atau WA
+
+### 8.7 Halaman Tentang Kami
+- Profil perusahaan, visi/misi, dan nilai
+- Profil tim atau instruktur utama
+- Akreditasi dan partner terpercaya
+- Galeri dokumentasi training
+
+### 8.8 Halaman Kontak
+- Info alamat, telepon, email, dan Google Maps embed
+- Form kontak mudah diisi
+- Tombol WhatsApp dan CTA konsultasi
+
+---
+
+## 9. Spesifikasi Teknis & CMS
+
+### 9.1 Teknologi Utama
+- Next.js + TypeScript
+- Tailwind CSS untuk styling
+- React Components dan App Router
+- Vercel / hosting static site modern
+- API route untuk penerimaan form (`src/app/api/leads/route.ts`)
+- Integrasi Google reCAPTCHA v3 (`src/app/api/recaptcha/verify/route.ts`)
+
+### 9.2 Data & Konten
+- Konten program, jadwal, dan blog dikelola dari file data / API internal
+- Pendekatan static generation untuk performa optimal
+- CMS headless optional jika diperlukan: Sanity, Contentful, Strapi, atau data source JSON/Markdown
+- Metadata SEO dikelola pada setiap halaman
+
+### 9.3 Integrasi & Tracking
+- Google Analytics 4 / Tag Manager
+- UTM parameter tracking pada formulir
+- WhatsApp deep link dengan prefilled message
+- Open Graph dan metadata sosial media
+- Schema markup JSON-LD untuk Organization, Article, Event, dan Breadcrumb
+
+### 9.4 Keamanan & Validasi
+- HTTPS enforced
+- Validasi server-side untuk semua form
+- reCAPTCHA v3 pada form lead dan pendaftaran
+- Data input disanitasi sebelum disimpan atau dikirim
+- Rate limiting sederhana di API route bila memungkinkan
+
+### 9.5 Performance & Scalability
+- Prioritaskan pre-rendering statis (`getStaticProps` / `generateStaticParams`)
+- Optimasi gambar menggunakan `next/image`
+- Caching browser untuk aset statis
+- Minify CSS/JS dan gunakan tree-shaking
+
+---
+
+## 10. Strategi SEO & Digital Marketing
+
+### 10.1 Fokus Keyword
+- Pelatihan K3
+- Sertifikasi K3
+- Training keselamatan kerja
+- Pelatihan lingkungan hidup
+- Jadwal training K3
+- In-House Training K3
+
+### 10.2 On-page SEO
+- Judul halaman yang rapi dan keyword-rich
+- Meta description persuasif dan relevan
+- Struktur heading yang logis (H1, H2, H3)
+- Alt text gambar deskriptif
+- URL slug Bahasa Indonesia yang ringkas
+
+### 10.3 Konten & Blog
+- Publikasi artikel edukasi minimal 1 per minggu selama 3 bulan awal
+- Topik: peraturan K3, tips keselamatan, studi kasus, panduan sertifikasi, update lingkungan
+- Internal linking antara halaman program, jadwal, dan artikel
+
+### 10.4 Local & Conversion Marketing
+- Sertakan alamat perusahaan dan cakupan layanan
+- Optimasi Google Business Profile atau direktori lokal
+- CTA WhatsApp prominent untuk percakapan instan
+- Form inquiry dengan tracking conversion dan sumber traffic
+
+### 10.5 Measurement & Analisis
+- Setup Google Analytics 4 untuk traffic dan konversi
+- Pantau event: submit form, klik WhatsApp, klik CTA, halaman program
+- Analisis performa keyword melalui Google Search Console
+- Review lalu lintas, konversi, dan interaksi setiap bulan
+
+---
+
+## 11. Content Requirements
+
+### 11.1 Homepage
+- Headline utama dan value proposition
+- Ringkasan layanan dan keunggulan
+- Menampilkan program unggulan dan jadwal terdekat
+- Testimoni dan trust badge
+- CTA pendaftaran dan WhatsApp
+
+### 11.2 Program Pelatihan
+- Nama program, ringkasan, tujuan, target peserta
+- Materi / silabus dan durasi
+- Biaya dan skema sertifikasi
+- Persyaratan peserta dan metode pelatihan
+- Manfaat setelah lulus dan lembaga penerbit
+
+### 11.3 Jadwal Training
+- Tanggal, durasi, lokasi, kuota, instruktur
+- Status pendaftaran dan CTA
+- Informasi khusus seperti training in-house atau online
+
+### 11.4 Konten Blog
+- 12 artikel awal dengan topik K3 dan Lingkungan
+- Setiap artikel lengkap dengan foto, CTA, dan metadata SEO
+- Halaman kategori untuk memudahkan navigasi
+
+### 11.5 Tentang Perusahaan
+- Sejarah, visi, misi, dan nilai
+- Profil tim/instruktur utama
+- Daftar akreditasi dan partner
+- Keterangan legalitas dan sertifikasi lembaga
+
+### 11.6 Kontak & Legal
+- Informasi kontak lengkap (telepon, email, WA)
+- Alamat kantor dan peta lokasi
+- Privacy Policy dan Syarat & Ketentuan
+
+---
+
+## 12. Milestone & Timeline
+
+| **Fase** | **Aktivitas** | **Durasi** | **Target** |
+|---|---|---|---|
+| Fase 1 | Discovery, wireframe, dan finalisasi konten | 1 minggu | Dokumen desain dan konten awal selesai |
+| Fase 2 | Development homepage + katalog program + detail program | 2 minggu | Homepage dan halaman program selesai |
+| Fase 3 | Development jadwal, pendaftaran, kontak, dan blog | 1 minggu | Jadwal, form, dan blog siap |
+| Fase 4 | QA, SEO, testing performance, dan integrasi | 1 minggu | Semua halaman diuji dan dioptimasi |
+| Fase 5 | Deployment, review, dan handover | 1 minggu | Website live + dokumentasi handover |
+
+### 12.1 Deliverables
+- Website responsif penuh
+- API form leads berfungsi
+- SEO on-page dan metadata lengkap
+- Panduan dasar update konten
+- Laporan pengujian performance
+
+---
+
+## 13. Risiko & Asumsi
+
+### 13.1 Risiko Utama
+- Konten dan asset tidak tersedia tepat waktu
+- Perubahan regulasi K3 menyebabkan revisi konten
+- Form lead gagal terhubung dengan sistem marketing
+- Traffic organik lambat muncul dalam 2-3 bulan pertama
+- reCAPTCHA menolak leads valid bila konfigurasi tidak optimal
+
+### 13.2 Asumsi
+- Data program pelatihan dan jadwal sudah tersedia
+- Website akan dijalankan pada platform hosting modern (Vercel atau setara)
+- Tidak diperlukan sistem CMS penuh pada fase awal
+- Form hanya perlu diteruskan ke email/CRM via API custom
+- Akreditasi dan logo partner dapat diberikan dalam format digital
+
+---
+
+## 14. Lampiran
+
+### Lampiran A: Referensi Konten
+- Daftar program pelatihan lengkap
+- Materi silabus dan durasi program
+- Profil instruktur dan sertifikasi
+- Logo akreditasi dan partner
+
+### Lampiran B: Dokumen Teknis
+- Spesifikasi API form lead
+- Skema data program/jadwal
+- Panduan deploy dan environment variables
+
+### Lampiran C: Glossary
+- K3: Keselamatan dan Kesehatan Kerja
+- BNSP: Badan Nasional Sertifikasi Profesi
+- Kemnaker: Kementerian Ketenagakerjaan
+- reCAPTCHA: mekanisme perlindungan form dari bot
+
 │   ├── K3 Umum
 │   │   ├── Ahli K3 Umum (AK3U) - Kemnaker
 │   │   ├── Petugas K3 Umum - BNSP
