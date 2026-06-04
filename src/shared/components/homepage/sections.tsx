@@ -145,7 +145,7 @@ export function ScheduleSection({ schedules }: { schedules: HomepageContent['sch
               <p className="text-sm text-slate-600">{schedule.location}</p>
               <p className="text-sm font-semibold text-slate-800">{schedule.price}</p>
               <span className="w-fit rounded-full bg-success-600 px-3 py-1 text-xs font-semibold text-white">{schedule.status}</span>
-              <a href={`/pendaftaran?program=${schedule.slug}`} className="text-sm font-semibold text-primary-700 hover:text-primary-800">
+              <a href={schedule.href} className="text-sm font-semibold text-primary-700 hover:text-primary-800">
                 Daftar
               </a>
             </div>

@@ -7,7 +7,10 @@ import { TypedDocumentNode } from '@graphql-typed-document-node/core'
 const WORDPRESS_API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://api.hse-skillup.com/graphql'
 
 // Error handling link
-const errorLink = onError(({ graphQLErrors, networkError }) => {
+const errorLink = onError(({ graphQLErrors, networkError }: {
+  graphQLErrors?: Array<{ message: string; locations?: any; path?: any }>;
+  networkError?: Error
+}) => {
   if (graphQLErrors) {
     graphQLErrors.forEach(({ message, locations, path }) => {
       console.error(
@@ -35,7 +38,7 @@ const client = new ApolloClient({
         fields: {
           posts: {
             keyArgs: false,
-            merge(existing = [], incoming) {
+            merge(existing: any[] = [], incoming: any[]) {
               return [...existing, ...incoming]
             },
           },
@@ -58,11 +61,11 @@ export async function fetchQuery<TResult, TVariables>(
   query: TypedDocumentNode<TResult, TVariables>,
   variables?: TVariables
 ): Promise<TResult> {
-  const { data } = await client.query<TResult, TVariables>({
+  const result = await (client as any).query({
     query,
     variables,
   })
-  return data
+  return result.data as TResult
 }
 
 // Helper function for typed mutations
@@ -70,11 +73,11 @@ export async function mutateQuery<TResult, TVariables>(
   mutation: TypedDocumentNode<TResult, TVariables>,
   variables?: TVariables
 ): Promise<TResult> {
-  const { data } = await client.mutate<TResult, TVariables>({
+  const result = await (client as any).mutate({
     mutation,
     variables,
   })
-  return data!
+  return result.data as TResult
 }
 
 export default client
